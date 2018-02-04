@@ -1,0 +1,11 @@
+lab4exe: lab_4_unit_test.o lab_4.o
+	g++ -Wall -g -o lab4exe lab_4.o lab_4_unit_test.o
+
+lab4: lab_4.cpp lab_4.h
+	g++ -Wall -g -c lab_4.cpp lab_4.h
+
+unittest4: lab_4_unit_test.cpp lab_4.h catch.hpp
+	g++ -Wall -g -c lab_4_unit_test.cpp	lab_4.h catch.hpp
+
+clean:
+	rm *.o *test

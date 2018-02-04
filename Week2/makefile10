@@ -1,0 +1,11 @@
+lab10exe: lab_10_unit_test.o lab_10.o
+	g++ -Wall -g -o lab10exe lab_10.o lab_10_unit_test.o
+
+lab10: lab_10.cpp lab_10.h
+	g++ -Wall -g -c lab_10.cpp lab_10.h
+
+unittest10: lab_10_unit_test.cpp lab_10.h
+	g++ -Wall -g -c lab_10_unit_test.cpp lab_10.h
+
+clean:
+	rm *.o *test
