@@ -5,7 +5,7 @@
  * Sources     :
  */
 #define CATCH_CONFIG_MAIN
-#include "../../helpful_files/catch.hpp"
+#include "catch.hpp"
 
 #include "lab_4.h"
 

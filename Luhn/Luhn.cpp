@@ -22,8 +22,7 @@ int Luhn(string& card_){
     int last= 0;
     int total = 0;
     int digit;
-    int valid;
-    
+
     //Sets the last variable to the size of the total card number.
     last = card_.size();
 
@@ -51,13 +50,12 @@ int Luhn(string& card_){
     //Checking if the total amount is divisible by 10 and if it is a valid credit card number.
     if (total % 10 == 0) {
         //Valid Credit card number is 0 and invalid will return as 1.
-        valid = 0;
+        return 0;
     }
     else {
-        valid = 1;
+        return 1;
     }
 
-    return valid;
 }
 
 //Class to hold all the card information.
@@ -73,25 +71,23 @@ class CardCheck {
         //Creating a string input stream.
         istringstream ss;
         
-        //Initializer variable.
-        int i = 0;
-        
-        //Buffer variable to transfer over to the stringstream.
-        string line;
-        
         //To return the type of card.
-        int bin = 0;
+        int bin_ = 0;
 
     public:
         //A function to get the string stream from the text file.
         void SetString(ifstream& fin){
+            
+            //Buffer variable to transfer over to the stringstream.
+            string line_;
 
             //Allocating the values from the text file to the stringstream ss and storing into the string.
-                getline(fin, line);
-                ss.str(line);
+                getline(fin, line_);
+                ss.str(line_);
         }
         //A function that will store one card number in the string card_.
         string GetString(){
+            
             //Stores the string stream string into card_.
             card_ = ss.str();
         
@@ -112,26 +108,27 @@ class CardCheck {
         }
         //To find out what Credit Card Company the card is from.
         void SetBin(int v){
+            
             if (v == 0){
                 if ((card_.substr(0,2) == "34") || (card_.substr(0,2) == "37")){
                     //The Credit Card is American Express
-                    bin = 1;
+                    bin_ = 1;
                 }
                 else if (((card_.substr(0,2)) <= "55") && ((card_.substr(0,2) >= "51"))){
                     //The Credit Card is MasterCard
-                    bin = 2;
+                    bin_ = 2;
                 }
                 else if ((card_.substr(0,1)) == "4"){
                     //The Credit Card is Visa
-                    bin = 3;
+                    bin_ = 3;
                 }
                 else if (((card_.substr(0,4)) == "6011") || (((card_.substr(0,6)) <= "622925") && ((card_.substr(0,6)) >= "622126")) || ((card_.substr(0,1)) == "65") || (((card_.substr(0,3)) <= "649" && ((card_.substr(0,3)) >="644")))){
                     //The Credit Card is Discover
-                    bin = 4;
+                    bin_ = 4;
                 }
                 else{
                     //Unknown Card Type
-                    bin = 0;
+                    bin_ = 0;
                 }
         
             }
@@ -139,7 +136,7 @@ class CardCheck {
         //A function that returns what Credit Card Company the card is from.
         int GetBin(){
             
-            return bin;
+            return bin_;
         }
         
 };
@@ -217,3 +214,85 @@ int main() {
 fin.close();
 
 }
+
+
+/* 
+
+TEST:
+
+Card #: 378282246310005
+Valid Credit Card.
+The Credit Card is American Express.
+=======================================
+Card #: 371449635398431
+Valid Credit Card.
+The Credit Card is American Express.
+=======================================
+Card #: 378734493671000
+Valid Credit Card.
+The Credit Card is American Express.
+=======================================
+Card #: 5610591081018250
+Valid Credit Card.
+Unknown Card Type.
+=======================================
+Card #: 30569309025904
+Valid Credit Card.
+Unknown Card Type.
+=======================================
+Card #: 38520000023237
+Valid Credit Card.
+Unknown Card Type.
+=======================================
+Card #: 6011111111111117
+Valid Credit Card.
+The Credit Card is Discover.
+=======================================
+Card #: 6011000990139424
+Valid Credit Card.
+The Credit Card is Discover.
+=======================================
+Card #: 3530111333300000
+Valid Credit Card.
+Unknown Card Type.
+=======================================
+Card #: 3566002020360505
+Valid Credit Card.
+Unknown Card Type.
+=======================================
+Card #: 5555555555554444
+Valid Credit Card.
+The Credit Card is MasterCard.
+=======================================
+Card #: 5105105105105100
+Valid Credit Card.
+The Credit Card is MasterCard.
+=======================================
+Card #: 4111111111111111
+Valid Credit Card.
+The Credit Card is Visa.
+=======================================
+Card #: 4012888888881881
+Valid Credit Card.
+The Credit Card is Visa.
+=======================================
+Card #: 4222222222222
+Valid Credit Card.
+The Credit Card is Visa.
+=======================================
+Card #: 76009244561
+Invalid Credit Card.
+The Credit Card is Visa.
+=======================================
+Card #: 5019717010103742
+Valid Credit Card.
+Unknown Card Type.
+=======================================
+Card #: 6331101999990016
+Valid Credit Card.
+Unknown Card Type.
+=======================================
+
+
+
+*/
