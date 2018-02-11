@@ -11,9 +11,9 @@
 using std::cout;
 using std::endl;
 
-#include "lab_11.h"
+#include "money.h"
 // To test for correct Header Guards
-#include "lab_11.h"
+#include "money.h"
 
 TEST_CASE("Overloaded + Operator") {
   Money amount1(123, 45), amount2(10, 9);
