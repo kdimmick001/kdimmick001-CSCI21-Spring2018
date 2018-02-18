@@ -1,0 +1,21 @@
+LuhnBexe: ClassAccountInfo.o ClassCardTransactionInfo.o ClassCardType.o LuhnAlg.o PartB.o
+	g++ -Wall -std=c++11 -g -o LuhnBexe ClassAccountInfo.o ClassCardTransactionInfo.o ClassCardType.o LuhnAlg.o PartB.o
+
+ClassAccountInfo: ClassAccountInfo.cpp Class.h
+	g++ -Wall -std=c++11 -g -c ClassAccountInfo.cpp
+	
+ClassCardTransactionInfo: ClassCardTransactionInfo.cpp Class.h
+	g++ -Wall -std=c++11 -g -c ClassCardTransactionInfo.cpp
+	
+ClassCardType: ClassCardType.cpp Class.h
+	g++ -Wall -std=c++11 -g -c ClassCardType.cpp
+
+LuhnAlg: LuhnAlg.cpp Class.h
+	g++ -Wall -std=c++11 -g -c LuhnAlg.cpp
+
+PartB: PartB.cpp Class.h
+	g++ -Wall -std=c++11 -g -c PartB.cpp
+
+clean:
+	rm *.o *test
+	
