@@ -141,6 +141,3 @@ class CardTypeCorp : public CardTypePlat {
 
 //A function to run the Luhn Algorithm on the card number information that has the parameter of the card number as a pass by reference.
 int LuhnAlg(string& card_);
-
-//Main function
-int main();

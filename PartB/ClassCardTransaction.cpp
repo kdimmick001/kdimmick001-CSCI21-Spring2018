@@ -1,4 +1,12 @@
 #include "Class.h"
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cstdlib>
+#include <fstream>
+#include <sstream>
+using namespace std;
+
 //
 class CardTransaction : public AccountInfo {
     private:

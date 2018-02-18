@@ -1,4 +1,12 @@
 #include "Class.h"
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cstdlib>
+#include <fstream>
+#include <sstream>
+using namespace std;
+
 
 class AccountInfo {
     private:
@@ -16,7 +24,7 @@ class AccountInfo {
         //A string that holds the first and last name of the account holder.
         string frst_lst_name_;
         //How much was spent for a month.
-        double spent_
+        double spent_;
         //Amount of rebate for the month.
         double rebate_;
 
@@ -47,8 +55,8 @@ class AccountInfo {
 void AccountInfo::SetCardNum(int valid_transaction_location_){
     
     //A for loop to hold a constant transaction card number and compare it to a rotating account inventory.
-    for (account_location_ = 0; account_location_ < card_num_.size(); ++account_location_){
-        if (transaction_card_num_.at(valid_transaction_location_) == card_num_.at(account_location_)){
+    for (int account_location_ = 0; account_location_ < card_num_.size(); ++account_location_){
+        if (CardTransaction::transaction_card_num_.at(valid_transaction_location_) == card_num_.at(account_location_)){
             
             SetBalance(account_location_); //To get the current balance to then call the GetBanace to return and save
             SetName(account_location_);

@@ -1,4 +1,11 @@
 #include "Class.h"
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cstdlib>
+#include <fstream>
+#include <sstream>
+using namespace std;
 
 //A function to run the Luhn Algorithm on the card number information that has the parameter of the card number as a pass by reference.
 int LuhnAlg(string& card_){
