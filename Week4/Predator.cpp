@@ -1,3 +1,5 @@
+#include Predator.h
+
 class Animal{
     private:
         double reproduce_;

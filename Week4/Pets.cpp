@@ -1,5 +1,4 @@
-#include<string>
-using std::string;
+#include Pets.h
 
 class Pet {
     public:

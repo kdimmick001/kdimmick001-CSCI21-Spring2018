@@ -1,3 +1,6 @@
+#include Pair.h
+
+
 class Pair(){
     private:
         int num1_;

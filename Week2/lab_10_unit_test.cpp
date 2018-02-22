@@ -6,9 +6,9 @@
 #define CATCH_CONFIG_MAIN
 #include "../../helpful_files/catch.hpp"
 
-#include "temperature.h"
+#include "lab_10.h"
 // Double Include to Check for Header Guards
-#include "temperature.h"
+#include "lab_10.h"
 
 TEST_CASE("Temperature Using Default Constuctor") {
   Temperature temp;
