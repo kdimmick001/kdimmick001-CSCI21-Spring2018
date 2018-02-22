@@ -213,3 +213,50 @@ string ToUpper(string input){
     return input;
 };
 
+int main() {
+    
+    string item = "bed";
+    int number = 3;
+
+    
+    Goldilocks(item, number);
+    
+    item = ToLower(item);
+    
+    cout << "Lower: " << item << endl;
+    
+    item = ToUpper(item);
+    
+    cout << "Upper: " << item << endl;
+}
+
+
+/*
+
+TEST:
+
+Once upon a time, there was a troublesome girl named Goldi Locks.A distant cousin of Robin of Loxley. Her last name changing through etymology and heraldry, as well as through several misreputable past generations.
+Well this girl was stolling through the forrest, as is wise of such little girls to do on their own.And she came upon a strange cabin. This was an odd cabin, as it was covered in claw marks and bear droppings.Which was an open invitation for her to venture inside to rumage through the belongings and take the souveniors of those who had befallen a bear attack.
+She opened the door which fell open upon its hinges.Looking around the cabin, she noticed that it was fairly well kempt.She went in to explore. 'The people that lived here before her must of had a compusive disorder' she thought.It was a very odd lone cabin in the woods, because everything in this house cames in groups of three.There were three doors, three rugs, three windows, three of everything.
+She stared at this unusal arrangement wondering who their interior designer could have been.When she became fairly hungry and tired.Well she had plenty of choices. She could have one of the three porridges, sit in one of the three chairs, or sleep in one of the three beds.
+What should this little home invader do first?
+
+Goldi Locks is very content with her choice.
+This bedis just right
+So she stayed to enjoy in her accomplishment.
+Unfortunately this is where her story ends. She was so content that she overstayed her welcome.
+A near by family of bears noticed her in the house and came to also explore the cabin.But for this family, instead of having three choices of everything, had an easy choice of one.And thus Goldi Locks was no more.
+Goldi Locks is very content with her choice.
+This bedis just right
+So she stayed to enjoy in her accomplishment.
+Unfortunately this is where her story ends. She was so content that she overstayed her welcome.
+A near by family of bears noticed her in the house and came to also explore the cabin.But for this family, instead of having three choices of everything, had an easy choice of one.And thus Goldi Locks was no more.
+Goldi Locks is very content with her choice.
+This bedis just right
+So she stayed to enjoy in her accomplishment.
+Unfortunately this is where her story ends. She was so content that she overstayed her welcome.
+A near by family of bears noticed her in the house and came to also explore the cabin.But for this family, instead of having three choices of everything, had an easy choice of one.And thus Goldi Locks was no more.
+Lower: bed
+Upper: BED
+
+*/

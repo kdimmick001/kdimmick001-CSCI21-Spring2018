@@ -29,7 +29,7 @@ void MakeChange(int initial_value, int &quarters, int &dimes, int &nickels,
   // CODE HERE
   
   //Creating a variable to hold excess change after one of the coins are gathered.
-  int extra;
+  int extra = initial_value;
   
   //A while function to continue taking from the initial value until the value of extra is 0.
   while (extra != 0){
@@ -40,7 +40,7 @@ void MakeChange(int initial_value, int &quarters, int &dimes, int &nickels,
     nickels = extra / 5; //the amound of nickels from the extra
     extra = extra % 5; //the amount left over after all the nickles are taken out
     pennies = extra; //that left over amount is then made into pennies.
-}
+  }
 
 cout << "From your initial value you will recieve: " << endl;
 cout << "Quarters: " << quarters << endl;
@@ -89,3 +89,34 @@ double LaunchHumanCannonball(double initial_velocity, double launch_angle) {
   
   return x_distance;
 };
+
+int main(){
+  
+  int quarters = 0;
+  int dimes = 0;
+  int nickels = 0;
+  int pennies = 0;
+  
+  int x;
+  
+  MakeChange(50, quarters, dimes, nickels, pennies);
+  
+  x = LaunchHumanCannonball(10, 45);
+  
+  cout << x << endl;
+  
+}
+
+
+/*
+
+TEST:
+
+From your initial value you will recieve: 
+Quarters: 2
+Dimes: 0
+Nickels: 0
+Pennies: 0
+10
+
+*/
