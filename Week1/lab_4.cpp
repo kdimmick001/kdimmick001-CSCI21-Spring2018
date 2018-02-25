@@ -11,7 +11,7 @@ string MakeString(string label, double value, char separator) {
     
     stringstream ss;
     
-    ss >> label >> separator >> value;
+    ss << label << " " << separator << " " << value;
     
     string info;
     
@@ -23,7 +23,7 @@ string MakeString(string label, double value, char separator) {
 
 char StringToChar(string value) {
     
-    char value_[1];
+    /*char value_[1];
     
     if ((value.length() == 0) || (value.length() < 0)) {
         return '\0';
@@ -32,6 +32,15 @@ char StringToChar(string value) {
         
         return value_[0];
     
+    }
+    */
+    
+    const char *s = value.c_str();
+    
+    if ((value.length() == 0) || (value.length() < 0)) {
+        return '\0';
+    } else {
+        return s[0];
     }
 };
 
