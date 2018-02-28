@@ -4,10 +4,8 @@
  * Description : Unit test to test Lab #10 Functionality
  */
 #define CATCH_CONFIG_MAIN
-#include "../../helpful_files/catch.hpp"
+#include "catch.hpp"
 
-#include "lab_10.h"
-// Double Include to Check for Header Guards
 #include "lab_10.h"
 
 TEST_CASE("Temperature Using Default Constuctor") {

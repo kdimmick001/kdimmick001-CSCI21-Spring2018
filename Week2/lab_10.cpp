@@ -10,26 +10,21 @@
  * A class that converts temperatures. It will always internally store the value
  * in kelvin.
  */
- #include lab_10.h
+#include "lab_10.h"
  
-class Temperature {
- public:
-  /*
-   * Constructor #1.
-   * Sets kelvin_ to 0
-   */
-  Temperature(){
-      double kelvin_ = 0;
-  }
+
+Temperature::Temperature(){
+ double kelvin_ = 0;
+};
 
   /*
    * Constructor #2.
    * Sets kelvin_ to the supplied value
    * @param double kelvin - The value to set the internal kelvin to
    */
-  Temperature(double kelvin){
-      kelvin_ = kelvin;
-  }
+Temperature::Temperature(double kelvin){
+  double kelvin_ = kelvin;
+};
 
   /*
    * Constructor #3.
@@ -42,28 +37,25 @@ class Temperature {
    * @param char unit - The type of unit temp is. Will be either 'F' or 'C',
    *                    case-insensitive
    */
-  Temperature(double temp, char unit){
-      double kelvin;
-      
-      if (unit == 'F'){
-          //Farenheit conversion formula to kelvin.
-          kelvin = ((temp + 459.67) * (5/9));
-      }
-      if (unit == 'C'){
-          //Celcius conversion formula to kelvin.
-          kelvin = (temp + 273.15);
-      
-  }
-  }
+Temperature::Temperature(double temp, char unit){
+  if (unit == 'F'){
+    //Farenheit conversion formula to kelvin.
+     kelvin_ = ((temp + 459.67) * (5/9));
+   }
+   if (unit == 'C'){
+    //Celcius conversion formula to kelvin.
+     kelvin_ = (temp + 273.15);
+   }
+};
 
   /*
    * The temperature will come in as kelvin and this function will set the
    * internal temp to this value
    * @param double kelvin - The value to set the internal kelvin to.
    */
-  void SetTempFromKelvin(double kelvin){
-    kelvin_ = kelvin;
-]
+void Temperature::SetTempFromKelvin(double kelvin){
+  kelvin_ = kelvin;
+};
   /*
    * The temperature will come in as Celsius and this function will set the
    * internal temp to this value, once converted to kelvin
@@ -71,9 +63,9 @@ class Temperature {
    * @param double celsius - The value (in celsius) to set the internal kelvin
    *                       - to.
    */
-  void SetTempFromCelsius(double celsius){
-        kelvin_ = celsius + 273.15;
-}
+void Temperature::SetTempFromCelsius(double celsius){
+  kelvin_ = celsius + 273.15;
+};
   /*
    * The temperature will come in as Fahrenheit and this function will set the
    * internal temp to this value, once converted to kelvin
@@ -81,35 +73,35 @@ class Temperature {
    * @param double fahrenheit - The value (in fahrenheit) to set the internal
    *                          - kelvin to.
    */
-  void SetTempFromFahrenheit(double fahrenheit){
-      kelvin_ = ((5.0 * (f-32)/9) + 273.15);
-  }
+void Temperature::SetTempFromFahrenheit(double fahrenheit){
+  kelvin_ = ((5.0 * (fahrenheit-32)/9) + 273.15);
+};
 
   /*
    * Gets the internal temperature in Kelvin.
    * @return double - The temperature in Kelvin
    */
-  double GetTempAsKelvin() const{
-      return kelvin_;
-  }
+double Temperature::GetTempAsKelvin() const{
+  return kelvin_;
+};
 
   /*
    * Returns the internal temp converted to Celsius
    * Formula: k - 273.15
    * @return double - The temperature in Celsius
    */
-  double GetTempAsCelsius() const{
-      return (kelvin_ - 273.15);
-  }
+double Temperature::GetTempAsCelsius() const{
+  return (kelvin_ - 273.15);
+};
 
   /*
    * Returns the internal temp converted to Fahrenheit
    * Formula: ((c * 9.0) / 5) + 32;
    * @return double - The temperature in Fahrenheit
    */
-  double GetTempAsFahrenheit() const{
-      return (((kelvin_ *9.0)/5) + 32);
-  }
+double Temperature::GetTempAsFahrenheit() const{
+  return (((kelvin_ *9.0)/5) + 32);
+};
 
   /*
    * Get a string representation of the temperature.
@@ -126,25 +118,21 @@ class Temperature {
    * @return string - A string representation of the temperature or invalid if
    *                  the provided unit is not recognized
    */
-  string ToString(char unit = 'K') const{
-      istringstream ssin;
-      
-      if (unit == 'F') {
-          SetTempFromFahrenheit;
-          GetTempAsKelvin;
-      } else if (unit == 'C'){
-          SetTempFromCelsius;
-          GetTempAsKelvin;
-      } else{
-          SetTempFromKelvin;
-          GetTempAsKelvin;
-      }
-      
-      ssin >> fixed >> setprecision(2) >> kelvin_ << " " << unit;
-      
-      return ssin.str();
+string Temperature::ToString(char unit = 'K') const{
+  stringstream ssin;
+  double value;
+  
+  if ((unit == 'F') || (unit == 'f')){
+   value = GetTempAsFahrenheit();
+  } else if ((unit == 'C') || (unit == 'c')){
+   value = GetTempAsCelsius();
+  } else if ((unit == 'K') || (unit = 'k')){
+   value = kelvin_;
+  } else {
+   return "Invalid Unit";
   }
-
- private:
-  double kelvin_;
+  
+  ssin << fixed << setprecision(2) << value << " " << unit;
+      
+  return ssin.str();
 };

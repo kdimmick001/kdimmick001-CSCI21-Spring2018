@@ -1,3 +1,11 @@
+#include <string>
+#include <vector>
+#include <iostream>
+#include <cstdlib>
+#include <fstream>
+#include <sstream>
+using namespace std;
+
 //A function to open the file and store the input to access as the game board.
 vector <char> FileInput(string file, vector <vector<char>> &board_){
     
@@ -17,7 +25,7 @@ vector <char> FileInput(string file, vector <vector<char>> &board_){
     //While not end of the file.
     while (!fin.eof()){
         //Have a loop to fill the 10 spaces of the board in both the columns and rows.
-        for (int i = 0, i < 10, ++i){
+        for (int i = 0, i< 10, ++i) {
             for (int j = 0, j < 10, ++j){
                 fin >> board_[i][j];
             }

@@ -9,8 +9,9 @@
 
 #include <string>
 #include <sstream>
-using std::string;
-using std::stringstream;
+#include <iomanip>
+#include <iostream>
+using namespace std;
 
 /*
  * Class Temperature.
@@ -107,7 +108,7 @@ class Temperature {
    * @return string - A string representation of the temperature or invalid if
    *                  the provided unit is not recognized
    */
-  string ToString(char unit = 'K') const;
+  string ToString(char unit) const;
 
  private:
   double kelvin_;

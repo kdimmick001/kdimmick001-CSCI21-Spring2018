@@ -30,18 +30,15 @@
  */
 string PrepareForDisplay(int values[], int size, char separator = ','){
     
-    istringstream ssin;
-    string line;
+    stringstream ssin;
     
-    for (int i = 0; i < size; ++i){
-        ssin >> value[i] >> separator;
+    for (int i = 0; i < (size - 1); ++i){
+        ssin << values[i] << separator;
     }
+    ssin << values[size - 1];
     
-    line = ssin.str();
-    
-    return line;
-    
-}
+    return ssin.str();
+};
 
 /*
  * Test to see if an array contains a specified value.
@@ -53,10 +50,10 @@ string PrepareForDisplay(int values[], int size, char separator = ','){
 bool HasValue(int values[], int size, int value){
     bool question;
     
-    
     for (int i = 0; i < size; ++i){
         if (values[i] == value){
             question = true;
+            return question;
         } else {
             question = false;
         }
@@ -64,7 +61,7 @@ bool HasValue(int values[], int size, int value){
     
     return question;
     
-}
+};
 
 /*
  * Return the value from an array at a specified index.
@@ -76,20 +73,22 @@ bool HasValue(int values[], int size, int value){
  * @return int - The value at the specified index in the array when error is set
  *               to false. if index is invalid, returns 0 and sets error to true
  */
-int ValueAt(int values[], int size, int index, bool &error{
+int ValueAt(int values[], int size, int index, bool &error){
     
-    if (values[index] == true){
-        error = false;
+    if (index < size){
+    
+        if (values[index] != true){
+            error = false;
         
-        return values[index];
+            return values[index];
         
-    } else if (values[index] == false){
-        error = true;
+        } else if (values[index] == false){
+            error = true;
         
-        return 0;
+        }
     }
-    
-}
+    return 0;
+};
 
 /*
  * Return the sum of the values in an integer array.
@@ -105,7 +104,7 @@ int Sum(int values[], int size){
     }
     
     return sum;
-}
+};
 
 /*
  * Swap the positions of two values in an integer array. The two
@@ -117,19 +116,24 @@ int Sum(int values[], int size){
  * @return bool - true if the swap was successful, otherwise false
  */
 bool SwapValues(int values[], int size, int index1, int index2){
-    
-    index1 = values[0];
-    index2 = values[1];
-    
-    values[1] = index1;
-    values[0] = index2;
-    
-    if ((values[1] == index1) && (values[0] == index2)){
-        return true;
-    }else{
-        return false;
-    }
 
-}
-
-#endif
+    int x;
+    int y;
+   
+   if ((index1 < size) && (index2 < size)){
+       if ((index1 >= 0) && (index2 >= 0)){
+            x = values[index1];
+            y = values[index2];
+    
+            values[index2] = x;
+            values[index1] = y;
+    
+            if ((values[index2] == x) && (values[index1] == y)){
+                return true;
+            }else{
+                return false;
+            }
+        }
+   }
+   return false;
+};
