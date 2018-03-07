@@ -5,6 +5,9 @@
 #include <sstream>
 using namespace std;
 
+#ifndef GAMEBOARD_CLASS_H
+#define GAMEBOARD_CLASS_H
+
 //A class GameBoard to make multiple GameBoard objects.
 //10 x 10 board of 'o's and 'S's.
 //Stores and accesses boards for multiple players.
@@ -25,3 +28,5 @@ class GameBoard {
         char GetValue(string rowcol);
         
 };
+
+#endif

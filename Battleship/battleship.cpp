@@ -58,6 +58,8 @@ int main() {
             cout << "Please enter a valid attack coordinate. ex. [A1]" << endl;
             cin >> rowcol;
         }
+        player.SetAttack(rowcol);
+        //player.GetAttack();
     }
 
     //Checks if all 17 spots have been hit.

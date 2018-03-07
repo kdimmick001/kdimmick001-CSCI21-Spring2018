@@ -75,15 +75,11 @@ char GameBoard::GetValue(string rowcol){
     //From the function index will check if there is a ship at the appropriate index and return the apppropriate answer.
     if (battle_board_.at(index) == 'S'){
         
-        //Test.
-        cout << "Hit" << endl;
         //Hit.
         return 'H';
         
     } else {
         
-        //Test.
-        cout << "Miss" << endl;
         //Miss.
         return 'M';
     }

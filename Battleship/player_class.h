@@ -4,13 +4,16 @@
 #include <sstream>
 using namespace std;
 
+#ifndef PLAYER_CLASS_H
+#define PLAYER_CLASS_H
+
 //The pure virtual base class of Player to set a foundation of functions to use with Human players and Computer players
 class Player {
     public:
-        virtual void SetAttack(string rowcol);
-        virtual char GetAttack();
-        virtual void PrintBoard();
-        virtual int GetVictory();
+        virtual void SetAttack(string rowcol){}
+        virtual void GetAttack(){}
+        virtual void PrintBoard(){}
+        virtual int GetVictory(){}
         
 };
 
@@ -31,7 +34,7 @@ class Human : public Player {
         Human();
         //The other functions are declared in the base class of Player as virtual functions.
         void SetAttack(string rowcol);
-        char GetAttack();
+        void GetAttack();
         void PrintBoard();
         int GetVictory();
 };
@@ -40,3 +43,5 @@ class Human : public Player {
 class Computer : public Player {
     
 };
+
+#endif

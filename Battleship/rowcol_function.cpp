@@ -21,61 +21,58 @@ int RowColIndex(string rowcol){
     //Sorts the string streams information into the appropriate variables.
     ssin >> row >> col;
     
-    cout << "Row: " << row << endl;
-    cout << "Column: " << col << endl;
-    
     //A switch statement dependent on the alphabetical column input that will translate to a number.
     //To access the convert the rowcol to a proper integer index.
     switch (row) {
         
         case 'A':
         case 'a':
-            index = (col - 1) * 1;
+            index = (col) * 1;
             break;
             
         case 'B':
         case 'b':
-            index = (col - 1) * 2;
+            index = (col) * 2;
             break;
             
         case 'C':
         case 'c':
-            index = (col - 1) * 3;
+            index = (col) * 3;
             break;
             
         case 'D':
         case 'd':
-            index = (col - 1) * 4;
+            index = (col) * 4;
             break;
             
         case 'E':
         case 'e':
-            index = (col - 1) * 5;
+            index = (col) * 5;
             break;
             
         case 'F':
         case 'f':
-            index = (col - 1) * 6;
+            index = (col) * 6;
             break;
             
         case 'G':
         case 'g':
-            index = (col - 1) * 7;
+            index = (col) * 7;
             break;
             
         case 'H':
         case 'h':
-            index = (col - 1) * 8;
+            index = (col) * 8;
             break;
             
         case 'I':
         case 'i':
-            index = (col - 1) * 9;
+            index = (col) * 9;
             break;
             
         case 'J':
         case 'j':
-            index = (col - 1) * 10;
+            index = (col) * 10;
             break;
             
         default:

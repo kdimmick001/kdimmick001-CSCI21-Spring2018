@@ -60,7 +60,7 @@ void Human::SetAttack(string rowcol) {
     return;
 };
 
-char Human::GetAttack(){
+void Human::GetAttack(){
     //create a dummy object to call the GetValue function in the GameBoard class and then use a destructor to delete the object.
     GameBoard check_;
     //A character of ship to store the return value from the function call.
@@ -76,9 +76,6 @@ char Human::GetAttack(){
     //To erase the current index value for the new character value
     tracker_board_.erase(tracker_board_.begin() + index);
     tracker_board_.insert(tracker_board_.begin() + index, ship);
-    
-    PrintBoard();
-  
   
 };
 
@@ -102,19 +99,19 @@ void Human::PrintBoard() {
         cout << col << " ";
         ++col;
     }
+    cout << endl;
     //Using ASCII numbers to store the appropriate row letter and allows incrementation.
     char row = 65;
+    int counter = 1;
     
-    for (int i = 0; i < tracker_board_.size(); ++i){
+    while (row < 75) {
         cout << row << " ";
-        while (i < 10){
+        for (int i = ((counter - 1) * 10); i < (10 * counter); ++i){
             cout << tracker_board_.at(i) << " ";
         }
         cout << endl;
-        
-        //To more the row up by one letter.
         ++row;
+        ++counter;
     }
-    
     return;
 };
