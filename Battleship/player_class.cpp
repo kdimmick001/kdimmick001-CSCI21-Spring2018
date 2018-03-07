@@ -1,5 +1,6 @@
 #include "player_class.h"
 #include "rowcol_function.h"
+#include "gameboard_class.h"
 
 //Constructor.
 Human::Human(){
@@ -15,7 +16,7 @@ Human::Human(){
 };
 
 //A function to call after checking the validity of the user rowcol guess.
-void Human::SetAttack(string rowcol) : public Player{
+void Human::SetAttack(string rowcol) {
     
     //To check if the guess has already been guessed
     //And if so store it and increase the counter but not call the GetAttack function
@@ -32,9 +33,9 @@ void Human::SetAttack(string rowcol) : public Player{
             stringstream ssin;
             ssin << rowcol << counter_;
             string repeated_;
-            repeated_ = ssin.str()
+            repeated_ = ssin.str();
             
-            attacks_.at(attacks_.begin() + counter_) = repeated_;
+            attacks_.at(counter_) = repeated_;
             
             ++counter_;
             
@@ -49,7 +50,7 @@ void Human::SetAttack(string rowcol) : public Player{
     //Do need to instead do attacks_.begin() + counter_?
     //Erases the current spot in the turn number and adds the new guess.
     attacks_.erase(attacks_.begin() + counter_);
-    attacks_.at(attacks_.begin() + counter_) = rowcol;
+    attacks_.at(counter_) = rowcol;
     
     GetAttack();
     
@@ -65,16 +66,16 @@ char Human::GetAttack(){
     //A character of ship to store the return value from the function call.
     char ship;
     //A call to the GetValue function in the GameBoard class to check if the current guess is a hit or miss
-    ship = check_.GetValue(attacks_.at(attacks_.begin() + counter_));
+    ship = check_.GetValue(attacks_.at(counter_));
     //Get the same position on the tracker board anr replace the current position value with that of ship and then print the board.
     //Need to reuse GameBoard GetValue function?
     //An integer to hold the index returned from the function call.
     int index;
-    index = RowColIndex(attacks_.at(attacks_.begin() + counter_));
+    index = RowColIndex(attacks_.at(counter_));
       
     //To erase the current index value for the new character value
     tracker_board_.erase(tracker_board_.begin() + index);
-    tracker_board_.insert(tracer_board_.begin() + index, ship);
+    tracker_board_.insert(tracker_board_.begin() + index, ship);
     
     PrintBoard();
   

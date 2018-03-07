@@ -30,6 +30,10 @@ class Human : public Player {
         //Constructor to set the tracker board and attacks vector.
         Human();
         //The other functions are declared in the base class of Player as virtual functions.
+        void SetAttack(string rowcol);
+        char GetAttack();
+        void PrintBoard();
+        int GetVictory();
 };
 
 //A class that inherits from the Player virtual class to create a class of computer players.

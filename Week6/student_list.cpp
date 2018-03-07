@@ -31,6 +31,8 @@ Student:: ~Student(){
   delete [];  
 };
 
+Student operator <<(Student const &)
+Student operator <(Student const &)
 
 int main(){
     
