@@ -71,17 +71,33 @@ char GameBoard::GetValue(string rowcol){
     //Calls the function to convert the rowcol string to a useable vector index.
     index = RowColIndex(rowcol);
     
+    cout << "Index: " << index << endl;
+    
+    for (int i = 0; i < battle_board_.size(); ++i){
+        cout << battle_board_.at(i) << endl;
+    }
+    
+    
+    int i = 0;
+    while (i < 10){
+        cout << battle_board_.at(i) << endl;
+        ++i;
+    }
     
     //From the function index will check if there is a ship at the appropriate index and return the apppropriate answer.
     if (battle_board_.at(index) == 'S'){
         
         //Hit.
+        cout << "Hit." << endl;
         return 'H';
+        
         
     } else {
         
         //Miss.
+        cout << "Miss" << endl;
         return 'M';
+        
     }
      
 };

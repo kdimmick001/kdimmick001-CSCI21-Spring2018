@@ -11,7 +11,7 @@ using namespace std;
 class Player {
     public:
         virtual void SetAttack(string rowcol){}
-        virtual void GetAttack(){}
+        virtual void GetAttack(char ship){}
         virtual void PrintBoard(){}
         virtual int GetVictory(){}
         
@@ -34,7 +34,7 @@ class Human : public Player {
         Human();
         //The other functions are declared in the base class of Player as virtual functions.
         void SetAttack(string rowcol);
-        void GetAttack();
+        void GetAttack(char ship);
         void PrintBoard();
         int GetVictory();
 };

@@ -52,23 +52,13 @@ void Human::SetAttack(string rowcol) {
     attacks_.erase(attacks_.begin() + counter_);
     attacks_.at(counter_) = rowcol;
     
-    GetAttack();
-    
     //To add the the turn number.
     ++counter_;
     
     return;
 };
 
-void Human::GetAttack(){
-    //create a dummy object to call the GetValue function in the GameBoard class and then use a destructor to delete the object.
-    GameBoard check_;
-    //A character of ship to store the return value from the function call.
-    char ship;
-    //A call to the GetValue function in the GameBoard class to check if the current guess is a hit or miss
-    ship = check_.GetValue(attacks_.at(counter_));
-    //Get the same position on the tracker board anr replace the current position value with that of ship and then print the board.
-    //Need to reuse GameBoard GetValue function?
+void Human::GetAttack(char ship){
     //An integer to hold the index returned from the function call.
     int index;
     index = RowColIndex(attacks_.at(counter_));

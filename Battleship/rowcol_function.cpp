@@ -27,52 +27,52 @@ int RowColIndex(string rowcol){
         
         case 'A':
         case 'a':
-            index = (col) * 1;
+            index = (col + 10) - 10;
             break;
             
         case 'B':
         case 'b':
-            index = (col) * 2;
+            index = (col + 20) - 10;
             break;
             
         case 'C':
         case 'c':
-            index = (col) * 3;
+            index = (col + 30) - 10;
             break;
             
         case 'D':
         case 'd':
-            index = (col) * 4;
+            index = (col + 40) - 10;
             break;
             
         case 'E':
         case 'e':
-            index = (col) * 5;
+            index = (col + 50) - 10;
             break;
             
         case 'F':
         case 'f':
-            index = (col) * 6;
+            index = (col + 60) - 10;
             break;
             
         case 'G':
         case 'g':
-            index = (col) * 7;
+            index = (col + 70) - 10;
             break;
             
         case 'H':
         case 'h':
-            index = (col) * 8;
+            index = (col + 80) - 10;
             break;
             
         case 'I':
         case 'i':
-            index = (col) * 9;
+            index = (col + 90) - 10;
             break;
             
         case 'J':
         case 'j':
-            index = (col) * 10;
+            index = (col + 100) - 10;
             break;
             
         default:
