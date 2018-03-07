@@ -27,6 +27,7 @@ class GameBoard {
         //This will return whether the rowcol was a hit 'H' or miss 'M'.
         char GetValue(string rowcol);
         
+        void PrintBoard();
 };
 
 #endif

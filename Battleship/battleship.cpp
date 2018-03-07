@@ -44,6 +44,9 @@ int main() {
     //A string to hold the user's row and column attack.
     string rowcol;
 
+    //Holds the hit or miss obtained from the GetValue function to then use to call the GetAttack function.
+    char ship;
+    
     while (player.GetVictory() != 17){
         //Prints the tracker board.
         player.PrintBoard();
@@ -58,12 +61,9 @@ int main() {
             cout << "Please enter a valid attack coordinate. ex. [A1]" << endl;
             cin >> rowcol;
         }
-        //Holds the hit or miss obtained from the GetValue function to then use to call the GetAttack function.
-        char ship;
+        
         player.SetAttack(rowcol);
-        cout << "Row Col: " << rowcol << endl;
-        ship = board.GetValue(rowcol);
-        cout << "Ship: " << ship << endl;
+        ship = battleboard.GetValue(rowcol);
         player.GetAttack(ship);
     }
 

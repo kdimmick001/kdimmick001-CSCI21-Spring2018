@@ -51,6 +51,7 @@ void Human::SetAttack(string rowcol) {
     //Erases the current spot in the turn number and adds the new guess.
     attacks_.erase(attacks_.begin() + counter_);
     attacks_.at(counter_) = rowcol;
+
     
     //To add the the turn number.
     ++counter_;
@@ -61,7 +62,7 @@ void Human::SetAttack(string rowcol) {
 void Human::GetAttack(char ship){
     //An integer to hold the index returned from the function call.
     int index;
-    index = RowColIndex(attacks_.at(counter_));
+    index = RowColIndex(attacks_.at(counter_ - 1));
       
     //To erase the current index value for the new character value
     tracker_board_.erase(tracker_board_.begin() + index);
