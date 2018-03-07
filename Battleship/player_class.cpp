@@ -18,36 +18,6 @@ Human::Human(){
 //A function to call after checking the validity of the user rowcol guess.
 void Human::SetAttack(string rowcol) {
     
-    //To check if the guess has already been guessed
-    //And if so store it and increase the counter but not call the GetAttack function
-    //And instead print the current board.
-    for (int i = 0; i <= counter_; ++i){
-        
-        if (attacks_.at(i) == rowcol){
-            
-            attacks_.erase(attacks_.begin() + counter_);
-            //To differentiate between repeated numbers and not to loop through them more than once.
-            //Creates a string stream to store the rowcol repeated and adds the variating counter
-            //To then store this into the current guessing position to differentiate between already guessed guesses
-            //And not allow an inaccurate counter turn order
-            stringstream ssin;
-            ssin << rowcol << counter_;
-            string repeated_;
-            repeated_ = ssin.str();
-            
-            attacks_.at(counter_) = repeated_;
-            
-            ++counter_;
-            
-            //Call the print function to print the current tracker board.
-            PrintBoard();
-            
-            return;
-            
-        }
-    }
-    
-    //Do need to instead do attacks_.begin() + counter_?
     //Erases the current spot in the turn number and adds the new guess.
     attacks_.erase(attacks_.begin() + counter_);
     attacks_.at(counter_) = rowcol;
