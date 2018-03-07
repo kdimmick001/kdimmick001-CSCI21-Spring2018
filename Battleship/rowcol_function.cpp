@@ -21,6 +21,11 @@ int RowColIndex(string rowcol){
     //Sorts the string streams information into the appropriate variables.
     ssin >> row >> col;
     
+    //If the column is out of range check.
+    if (col > 9){
+        return 101;
+    }
+    
     //A switch statement dependent on the alphabetical column input that will translate to a number.
     //To access the convert the rowcol to a proper integer index.
     switch (row) {
