@@ -21,14 +21,14 @@ int main() {
     
     //Prompting the user to enter a file name for the game board.
     cout << "Please enter a competitor board file." << endl;
-    cin >> file;
+    getline(cin, file);
     cout << endl;
     
     //If the file string has any while spaces keep asking to enter a valid one.
     for (int i = 0; i < file.length(); ++i) {
-        if ((file[i] == ' ') || (file[i] == '\n')){
+        while ((file[i] == ' ')){
             cout << "Please enter a valid file name to upload a game board" << endl;
-            cin >> file;
+            getline(cin, file);
         }
     }
     
@@ -686,5 +686,36 @@ J H o o o o o o o o o
 You have defeated the enemy!
 
 YOU WIN CAPTAIN!!!
+
+
+TEST FOR VALID FILE NAMES:
+
+*********!!PREPARE FOR BATTLE!!**********
+====WELCOME TO THE GAME OF BATTLESHIP====
+
+
+Please enter a competitor board file.
+board board me
+
+Please enter a valid file name to upload a game board
+board another board
+Please enter a valid file name to upload a game board
+board.txt
+  0 1 2 3 4 5 6 7 8 9 
+A o o o o o o o o o o 
+B o o o o o o o o o o 
+C o o o o o o o o o o 
+D o o o o o o o o o o 
+E o o o o o o o o o o 
+F o o o o o o o o o o 
+G o o o o o o o o o o 
+H o o o o o o o o o o 
+I o o o o o o o o o o 
+J o o o o o o o o o o 
+
+What shall your plan of attack be Captain?
+
+Enter a Row[letter] and a Column[number] of where you want to strike!
+
 
 */
