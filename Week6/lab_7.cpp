@@ -3,7 +3,9 @@
  * Author      : FILL IN
  * Description : Working with File I/O
  */
+
 #include "lab_7.h"
+
 
 // CODE HERE -- FUNCTION DEFINITION FOR ProcessFile()
 /*
@@ -38,9 +40,18 @@ bool ProcessFile(string filename){
 void ProcessArguments(int argc, char* argv[]){
     //Storage number
     int number;
+    
+    string file;
+    
+    if(argc == 2){
+        file = argv[1];
+    }
+    
+    ifstream fin;
+    fin.open(file);
  
     while (!fin.eof()){
-        fin.getline(100, number, '\n');
+        fin.getline(100, number);
         fin.ignore('\n');
     
         switch (number){
@@ -66,5 +77,3 @@ void ProcessArguments(int argc, char* argv[]){
     }
     fin.close();
 };
-
-#endif

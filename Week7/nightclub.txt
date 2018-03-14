@@ -1,0 +1,12 @@
+A apple
+A banana
+A blueberry
+A cherry
+A grapefruit
+A kiwi
+A orange
+A pineapple
+A raspberry
+A strawberry
+C
+R

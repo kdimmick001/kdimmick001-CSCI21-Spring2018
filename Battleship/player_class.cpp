@@ -1,6 +1,5 @@
-#include "player_class.h"
-#include "rowcol_function.h"
-#include "gameboard_class.h"
+#include "player.h"
+
 
 //Constructor.
 Human::Human(){

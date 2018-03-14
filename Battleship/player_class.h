@@ -4,6 +4,9 @@
 #include <sstream>
 using namespace std;
 
+#include "rowcol_function.h"
+#include "gameboard_class.h"
+
 #ifndef PLAYER_CLASS_H
 #define PLAYER_CLASS_H
 

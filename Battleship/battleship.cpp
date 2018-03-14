@@ -3,9 +3,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <sstream>
-#include "gameboard_class.h"
-#include "player_class.h"
-#include "rowcol_function.h"
+#include "player.h"
 using namespace std;
 
 int main() {
