@@ -41,11 +41,73 @@ int main(int argc, char* argv[]) {
     //Declares a Player Class object.
     Human human_player;
     
-    //If there is a argv[3] for turn order and the contents are COMPUTER.
-    if ((argc == 4) && (argv[3] == "COMPUTER")){
+    //Declares a variable to hold the human win condition variable.
+    int human_winner = 0;
+    
+    //Declare a variable to hold the computer win condition variable.
+    int computer_winner = 0;
+    //Dummy variable for the computer to check if the computer got a hit or not.
+    int computer_hit = 0;
+    
+    //Declares a variable to hold a rowcol guess.
+    string rowcol;
+    
+    //To generate a random turn order if not specified.
+    srand(time(NULL));
+    
+    //Variable to hold who goes first.
+    int first;
+    
+    //1 will be human player and 2 will be computer.
+    first = rand() % 2 + 1;
+    
+    //If there is a argv[3] for turn order and the contents are COMPUTER or the randomizer is 2.
+    if (((argc == 4) && (argv[3] == "COMPUTER")) || (first == 2)){
         //Calls the Computer Class to give it the first turn.
-        
+        //Uses the human file so that the computer can reference to check guesses.
+        computer_player.PushBoard(human_file);
+        computer_winner = computer_player.GetAttack();
+        if (computer_hit <= computer_winner){
+          cout << "He missed Captain!" << endl;
+        } else {
+          cout << "A direct hit Captain!" << endl;
+          computer_hit = computer_winner;
+        }
+        //Starts the next player's turn by passing the file to be used for the player's competitor's board.
+        human_player.PushBoard(computer_file);
     }
+    //If there is a argv[3] for turn order and the contents are HUMAN or the randomizer is 1.
+    if (((argc == 4) && (argv[3] == "HUMAN")) || (first == 1)){
+        //Calls the Human Class to give it the first turn.
+        //Uses the computer file so that the human can reference to check guesses.
+        human_player.PushBoard(computer_file);
+        human_player.PrintBoard();
+        //Prompts the user to make a guess
+        cout << endl << "What shall your plan of attack be Captain?" << endl << endl ;
+        cout << "Enter a Row[letter] and a Column[number] of where you want to strike!" << endl << endl;
+        cin >> rowcol;
+        cout << endl;
+        
+        //Checks the validity of the rowcol
+        while (RowColIndex(rowcol) == 101){
+            cout << endl << "Please enter a valid attack coordinate. ex. [A1]" << endl << endl;
+            cin >> rowcol;
+            cout << endl;
+        }
+        human_winner = human_player_.SetAttack(rowcol);
+        //Starts a whole computer turn to make in sync the loop of turn order.
+        computer_player(human_file);
+        computer_winner = computer_player.GetAttack();
+        if (computer_hit <= computer_winner){
+          cout << "He missed Captain!" << endl;
+        } else {
+          cout << "A direct hit Captain!" << endl;
+          computer_hit = computer_winner;
+        }
+    }
+    
+    while ()
+
     
     while (player.GetVictory() != 17){
         //Prints the tracker board.

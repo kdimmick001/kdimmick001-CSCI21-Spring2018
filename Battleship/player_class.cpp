@@ -44,6 +44,13 @@ int Human::SetAttack(string rowcol){
     return (human_player_.GetVictory());
 };
 
+void Human::PrintBoard(){
+    //To print the player tracker_board_.
+    human_player_.PrintBoard();
+    
+    return;
+}
+
 //Constructor.
 Computer::Computer(){
     //Sets the attack vector with placeholders for future valid attacks.
