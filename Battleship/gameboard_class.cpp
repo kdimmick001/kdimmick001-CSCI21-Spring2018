@@ -66,7 +66,7 @@ void GameBoard::SetBoard(string file){
     
 };
 //A function that changes the tracker_board_ whether the rowcol was a hit 'H' or miss 'M' and invoke the PrintBoard() function.
-void GameBoard::ChangeValue(string rowcol){
+char GameBoard::ChangeValue(string rowcol){
     
     //To store the function return index value.
     int index;
@@ -81,10 +81,8 @@ void GameBoard::ChangeValue(string rowcol){
         //Hit.
         tracker_board_.erase(tracker_board_.begin() + index);
         tracker_board_.insert(tracker_board_.begin() + index, 'H');
-        
-        PrintBoard();
-        
-        return;
+    
+        return 'H';
         
     } else {
         
@@ -92,9 +90,7 @@ void GameBoard::ChangeValue(string rowcol){
         tracker_board_.erase(tracker_board_.begin() + index);
         tracker_board_.insert(tracker_board_.begin() + index, 'M');
         
-        PrintBoard();
-        
-        return;
+        return 'M';
     }
      
 };

@@ -2,6 +2,7 @@
 #include <vector>
 #include <iostream>
 #include <sstream>
+#include <queue>
 using namespace std;
 
 #include "rowcol_function.h"
@@ -54,8 +55,13 @@ class Computer : public Player {
         
     public:
         Computer();
-        //Sets the guesses for the computer and returns the win condition check.
-        int SetAttack();
+        //A PushBoard function that will push the file name to the GameBoard class through the created computer_player_ object.
+        //This will create the competitor's board to compare to the player's tracker_board_ in the GameBoard class.
+        void PushBoard(string file);
+        //A function that creates a random coordinate guess.
+        int GetAttack();
+        //Sets the guesses for the computer from the PlanAttack function randomizer and returns the win condition check.
+        void SetAttack(string rowcol);
 };
 
 #endif
