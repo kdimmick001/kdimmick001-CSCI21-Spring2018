@@ -6,46 +6,44 @@
 #include "player.h"
 using namespace std;
 
-int main(int argc, char* argv[]) {
-  
-  
+int main() {
     //An introduction to the game program.
     cout << "*********!!PREPARE FOR BATTLE!!**********" << endl;
     cout << "====WELCOME TO THE GAME OF BATTLESHIP====" << endl << endl << endl;
     
-    //Declaring a string to hold the human's board file name.
-    string human_file = argv[1];
+    //Declaring a string to hold the file name.
+    string file = "file file";
     
-    //Declaring a string to hold the computer's board file name.
-    string computer_file = argv[2];
+    //Creating a board object from the Game Board class.
+    GameBoard board;
     
-    //If the file string has any while spaces keep asking to enter a valid one for the human board.
-    for (int i = 0; i < human_file.length(); ++i) {
-        while ((human_file[i] == ' ')){
-            cout << "Please enter a valid human board file name to upload." << endl;
-            getline(cin, human_file);
+    //Prompting the user to enter a file name for the game board.
+    cout << "Please enter a competitor board file." << endl;
+    getline(cin, file);
+    cout << endl;
+    
+    //If the file string has any while spaces keep asking to enter a valid one.
+    for (int i = 0; i < file.length(); ++i) {
+        while ((file[i] == ' ')){
+            cout << "Please enter a valid file name to upload a game board" << endl;
+            getline(cin, file);
         }
     }
     
-    //If the file string has any while spaces keep asking to enter a valid one for the computer board.
-    for (int i = 0; i < computer_file.length(); ++i) {
-        while ((human_file[i] == ' ')){
-            cout << "Please enter a valid computer board file name to upload." << endl;
-            getline(cin, computer_file);
-        }
-    }
+    //Create a object battleboard from the GameBoard class.
+    GameBoard battleboard;
     
-    //Declares a Computer Class object.
-    Computer computer_player;
+    //Call the SetBoard function with the valid file name to create the game board.
+    battleboard.SetBoard(file);
     
-    //Declares a Player Class object.
-    Human human_player;
+    //Create a object player from the Human class.
+    Human player;
     
-    //If there is a argv[3] for turn order and the contents are COMPUTER.
-    if ((argc == 4) && (argv[3] == "COMPUTER")){
-        //Calls the Computer Class to give it the first turn.
-        
-    }
+    //A string to hold the user's row and column attack.
+    string rowcol;
+
+    //Holds the hit or miss obtained from the GetValue function to then use to call the GetAttack function.
+    char ship;
     
     while (player.GetVictory() != 17){
         //Prints the tracker board.

@@ -15,24 +15,19 @@ class GameBoard {
     private:
         //A vector of characters to hold the game board.
         vector<char> battle_board_;
-        //Holds the current tracker board.
-        vector<char> tracker_board_;
     
     public:
-        //Constructor with no parameters to initialize the battle_board_ and tracker_board_ vector to all 'o's.
+        //Constructor with no parameters to initialize the battle_board_ vector to all 'o's.
         GameBoard();
         
         //A Set function that will get a valid file name and will populate the battle_board_vector appropriately.
         void SetBoard(string file);
         
-        //A function that has a parameter of rowcol that will check the row and column of the battle_board.
-        //This will change the tracker_board_ whether the rowcol was a hit 'H' or miss 'M' and invoke the PrintBoard() function.
-        void ChangeValue(string rowcol);
+        //A Get function that has a parameter of rowcol that will check the row and column of the battle_board.
+        //This will return whether the rowcol was a hit 'H' or miss 'M'.
+        char GetValue(string rowcol);
         
-        //This will print out the tracker_board_.
         void PrintBoard();
-        
-        
 };
 
 #endif

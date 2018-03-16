@@ -3,10 +3,7 @@
 
 //Constructor.
 GameBoard::GameBoard(){
-    //Sets a blank battle_board_ vector of 'o' characters.
     battle_board_.resize(100, 'o');
-    //Sets a blank tracker_board_ vector of 'o' charcters.
-    tracker_board_.resize(100, 'o');
     
 };
 
@@ -65,8 +62,9 @@ void GameBoard::SetBoard(string file){
     
     
 };
-//A function that changes the tracker_board_ whether the rowcol was a hit 'H' or miss 'M' and invoke the PrintBoard() function.
-void GameBoard::ChangeValue(string rowcol){
+
+//Get function that will return the outcome of a rowcol argument.
+char GameBoard::GetValue(string rowcol){
     
     //To store the function return index value.
     int index;
@@ -79,61 +77,15 @@ void GameBoard::ChangeValue(string rowcol){
     if (battle_board_.at(index) == 'S'){
         
         //Hit.
-        tracker_board_.erase(tracker_board_.begin() + index);
-        tracker_board_.insert(tracker_board_.begin() + index, 'H');
+        return 'H';
         
-        PrintBoard();
-        
-        return;
         
     } else {
         
         //Miss.
-        tracker_board_.erase(tracker_board_.begin() + index);
-        tracker_board_.insert(tracker_board_.begin() + index, 'M');
+        return 'M';
         
-        PrintBoard();
-        
-        return;
     }
      
 };
 
-//Checks the tracker_board_ vector for winning condition.
-int GameBoard::GetVictory(){
-    //Keeps track of how many ships have been hit
-    int win_condition_ = 0;
-    for (int i = 0; i < tracker_board_.size(); ++i){
-        if (tracker_board_.at(i) == 'H'){
-            ++win_condition_;
-        }
-    }
-    return win_condition_;
-};
-
-//Prints the tracker_board_ vector.
-void GameBoard::PrintBoard() {
-    //An initializer to loop through and print out the column numbers.
-    int col = 0;
-    //Outputs a space allowance for the lettered row output
-    cout << "  ";
-    while (col < 10){
-        cout << col << " ";
-        ++col;
-    }
-    cout << endl;
-    //Using ASCII numbers to store the appropriate row letter and allows incrementation.
-    char row = 65;
-    int counter = 1;
-    
-    while (row < 75) {
-        cout << row << " ";
-        for (int i = ((counter - 1) * 10); i < (10 * counter); ++i){
-            cout << tracker_board_.at(i) << " ";
-        }
-        cout << endl;
-        ++row;
-        ++counter;
-    }
-    return;
-};
