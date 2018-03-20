@@ -1,0 +1,35 @@
+--------------------------------------
+            TEST REPORT
+--------------------------------------
+
+1. Turn order was able to be generated randomly, as well as being determined by argv.
+2. Streams the argv file names appropriately.
+3. Switches between turns dependant on who began.
+4. Generates a random computer guess.
+    a. Reports if it is a miss and updates the gameboard.
+    b. If it guesses a hit reports and updates the gameboard.
+        i. Loads up the queue with the appropriate surrounding guesses based on the hit.
+        ii. If the surrounding guesses in the queue have already been guessed, they are popped off the queue.
+        
+        
+        
+---------------------------------------------------
+        PROBLEMS ENCOUNTERED WHEN TESTING  
+---------------------------------------------------
+
+1. In order to manipulate the rowcol guesses for the ccomputer, string stream was utilized.
+    a. I had used ssin.clear() in an effort to clear the stream between each use.
+        i.But this didn't seem to clear the stream of its contents, it just kept adding more rowcol combinations
+        and would in turn pop more than one guess off the queue at a time.
+        ii.I first looked up the proper use of ssin.clear() to make sure that I was using the function properly.
+            1. I kept seeing reports that ssin.str(""); was the only way to have a empty string stream.
+                a. When I tried this, once I applied the ssin.str(""); the stream wouldn't let me add anything else to the stream
+                instead it seemed to act as a continutously empty stream.
+                    i. I found the solution in a combination of the two functions.
+                        1. By first implementing ssin.str(""); and then ssin.clear(); the string stream seemed to then work as originally intended.
+ 
+2. Another error I encountered, was with a certain computer guess infinitly looping until reaching a segmentation fault.
+    a. When F8 was guessed the program continously kept guessing F8 through the randomly guessed numbers and wouldn't go any father with the guess.
+        i. Part of the problem with finding a solution to this, is that I was unable to see the beginning of the looping error
+        because, I could not go far enough back to see what the test output was when it began.
+

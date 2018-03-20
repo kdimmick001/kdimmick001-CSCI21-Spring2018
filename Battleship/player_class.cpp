@@ -99,7 +99,10 @@ int Computer::GetAttack(){
         pop_junk_ = hit_guesses_.front();
         cout << "Saved the non repeating queue guess in pop junk: " << pop_junk_ << endl;
         hit_guesses_.pop();
-        cout << "Popped the queue front off now the front is: " << hit_guesses_.front() << endl;
+        //A CHECK
+        if (hit_guesses_.size() != 0){
+            cout << "Popped the queue front off now the front is: " << hit_guesses_.front() << endl; 
+        }
         //Sends the variable to then check to see if it is a hit or not.
         SetAttack(pop_junk_);
         
