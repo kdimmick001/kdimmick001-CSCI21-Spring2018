@@ -4,6 +4,7 @@
 #include <sstream>
 #include <queue>
 #include <cstdlib>
+#include <time.h>
 using namespace std;
 
 #include "rowcol_function.h"

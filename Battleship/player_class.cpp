@@ -184,10 +184,10 @@ void Computer::SetAttack(string rowcol){
     cout << "Added to the attack vector the next guessed." << endl;
     cout << "Next guessed from attacks vector: " << attacks_.at(counter_) << endl;
     
-    //A check for what is stored in the attacks vector.
-    for (int i = 0; i < 30; ++i){
-        cout << "In attacks vector index: " << i << ", The guess: " << attacks_.at(i) << endl;
-    }
+    // //A check for what is stored in the attacks vector.
+    // for (int i = 0; i < 30; ++i){
+    //     cout << "In attacks vector index: " << i << ", The guess: " << attacks_.at(i) << endl;
+    // }
     //To add the the turn number.
     ++counter_;
     

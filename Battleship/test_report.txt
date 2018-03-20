@@ -10,8 +10,8 @@
     b. If it guesses a hit reports and updates the gameboard.
         i. Loads up the queue with the appropriate surrounding guesses based on the hit.
         ii. If the surrounding guesses in the queue have already been guessed, they are popped off the queue.
-        
-        
+5. Prints out the human tracker board and the updated human gameboard with the computer guesses on it.
+6. Has a condition for winning.
         
 ---------------------------------------------------
         PROBLEMS ENCOUNTERED WHEN TESTING  
@@ -33,4 +33,6 @@
     and wouldn't go any father with the guess.
         i. Part of the problem with finding a solution to this, is that I was unable to see the beginning of the looping error
         because, I could not go far enough back to see what the test output was when it began.
+        
+3. Another error seemed to happen, when the last item was being removed from the queue and it would be left empty. This occurred in a segmentation fault.
 
