@@ -56,6 +56,9 @@ Computer::Computer(){
     attacks_.resize(100, "Z0");
     //Initializes the counter to 0 to represent the turn number.
     counter_ = 0;
+    //Intializes the seed.
+    //Still doesn't fix makes more frequent.
+    //srand(time(NULL));
 };
 
 //A function that takes the file name input and passes it to the GameBoard class.
@@ -113,6 +116,7 @@ int Computer::GetAttack(){
     cout << "Went through the queue size check." << endl;
     
     //To create a random seed.
+    //FIXME!!! Possible seed to frequently going to move seed to try and fix the infinite loop of same guesses.
     srand(time(NULL));
     
     cout << "Created a random seed value." << endl;
@@ -180,6 +184,10 @@ void Computer::SetAttack(string rowcol){
     cout << "Added to the attack vector the next guessed." << endl;
     cout << "Next guessed from attacks vector: " << attacks_.at(counter_) << endl;
     
+    //A check for what is stored in the attacks vector.
+    for (int i = 0; i < 30; ++i){
+        cout << "In attacks vector index: " << i << ", The guess: " << attacks_.at(i) << endl;
+    }
     //To add the the turn number.
     ++counter_;
     
