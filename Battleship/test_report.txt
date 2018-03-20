@@ -29,7 +29,8 @@
                         1. By first implementing ssin.str(""); and then ssin.clear(); the string stream seemed to then work as originally intended.
  
 2. Another error I encountered, was with a certain computer guess infinitly looping until reaching a segmentation fault.
-    a. When F8 was guessed the program continously kept guessing F8 through the randomly guessed numbers and wouldn't go any father with the guess.
+    a. When F8 was guessed (so far, as well C1, H8, I7) as the program continously kept guessing F8 through the randomly guessed numbers 
+    and wouldn't go any father with the guess.
         i. Part of the problem with finding a solution to this, is that I was unable to see the beginning of the looping error
         because, I could not go far enough back to see what the test output was when it began.
 
