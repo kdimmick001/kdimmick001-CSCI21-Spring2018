@@ -63,7 +63,6 @@ void GameBoard::SetBoard(string file){
     //Closing the file when done getting all the information.
     fin.close();
     
-    
 };
 //A function that changes the tracker_board_ whether the rowcol was a hit 'H' or miss 'M' and invoke the PrintBoard() function.
 char GameBoard::ChangeValue(string rowcol){
@@ -108,7 +107,7 @@ int GameBoard::GetVictory(){
 };
 
 //Prints the tracker_board_ vector.
-void GameBoard::PrintBoard() {
+void GameBoard::PrintTracker() {
     //An initializer to loop through and print out the column numbers.
     int col = 0;
     //Outputs a space allowance for the lettered row output
@@ -126,6 +125,41 @@ void GameBoard::PrintBoard() {
         cout << row << " ";
         for (int i = ((counter - 1) * 10); i < (10 * counter); ++i){
             cout << tracker_board_.at(i) << " ";
+        }
+        cout << endl;
+        ++row;
+        ++counter;
+    }
+    return;
+};
+
+//Prints the human player's board file with the updates from the computer's guesses.
+void GameBoard::PrintBoard(){
+    //An initializer to loop through and print out the column numbers.
+    int col = 0;
+    //Outputs a space allowance for the lettered row output
+    cout << "  ";
+    while (col < 10){
+        cout << col << " ";
+        ++col;
+    }
+    cout << endl;
+    //Using ASCII numbers to store the appropriate row letter and allows incrementation.
+    char row = 65;
+    int counter = 1;
+    
+    //To update the human battle board.
+    for (int i = 0; i < tracker_board_.size(); ++i){
+        if ((tracker_board_.at(i) == 'H') || (tracker_board_.at(i) == 'M')){
+            battle_board_.erase(battle_board_.begin() + i);
+            battle_board_.insert(battle_board_.begin() + i, (tracker_board_.at(i)));
+        }
+    }
+    
+    while (row < 75) {
+        cout << row << " ";
+        for (int i = ((counter - 1) * 10); i < (10 * counter); ++i){
+            cout << battle_board_.at(i) << " ";
         }
         cout << endl;
         ++row;

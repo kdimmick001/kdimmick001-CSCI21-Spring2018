@@ -27,10 +27,16 @@ class GameBoard {
         
         //A function that has a parameter of rowcol that will check the row and column of the battle_board.
         //This will change the tracker_board_ whether the rowcol was a hit 'H' or miss 'M' and invoke the PrintBoard() function.
-        void ChangeValue(string rowcol);
+        char ChangeValue(string rowcol);
         
         //This will print out the tracker_board_.
+        void PrintTracker();
+        
+        //This will print out the human player's board with the updated computer guesses.
         void PrintBoard();
+        
+        //To check for victory.
+        int GetVictory();
         
         
 };

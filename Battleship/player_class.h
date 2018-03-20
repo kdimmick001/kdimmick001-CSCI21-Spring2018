@@ -3,6 +3,7 @@
 #include <iostream>
 #include <sstream>
 #include <queue>
+#include <cstdlib>
 using namespace std;
 
 #include "rowcol_function.h"
@@ -14,8 +15,8 @@ using namespace std;
 //The pure virtual base class of Player to set a foundation of functions to use with Human players and Computer players
 class Player {
     public:
-        virtual int SetAttack(string rowcol){}
         virtual void PushBoard(string file){}
+        virtual void PrintBoard(){}
 };
 
 //A class that inherits from the Player virtual class to create a class of human players.
@@ -37,6 +38,8 @@ class Human : public Player {
         void PushBoard(string file);
         //Sets the user guessed attack and stores it into a vector for reference as well as to check with the GameBoard class.
         int SetAttack(string rowcol);
+        //Prints out the tracker board.
+        void PrintBoard();
         
 
 };
@@ -62,6 +65,8 @@ class Computer : public Player {
         int GetAttack();
         //Sets the guesses for the computer from the PlanAttack function randomizer and returns the win condition check.
         void SetAttack(string rowcol);
+        //Prints out the human player's uploaded board with adjustments made for computer attacks.
+        void PrintBoard();
 };
 
 #endif
