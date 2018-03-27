@@ -28,7 +28,7 @@ string PrepareForDisplay(vector<type> values, int size, char separator){
     
     string display;
     
-    while(int i = 0, i < size, ++i){
+    for(int i = 0; i < size; ++i){
         ss >> values.at(i) >> separator;
     }
     
@@ -51,7 +51,7 @@ bool HasValue(vector<type> values, int size, type value_to_find) {
     
     bool validity;
     
-    while(int i = 0, i < size, ++i) {
+    for(int i = 0; i < size; ++i) {
         if(values.at(i) == value_to_find){
             validity = true;
         } else {
@@ -101,7 +101,7 @@ template<typename type>
 type Sum(vector<type> values, int size){
     type sum = values();
     
-    while (int i = 0, i < size, ++i) {
+    for (int i = 0; i < size; ++i) {
         sum = sum + values.at(i);
     }
     

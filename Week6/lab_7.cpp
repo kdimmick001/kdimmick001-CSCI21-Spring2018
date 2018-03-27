@@ -65,7 +65,7 @@ void ProcessArguments(int argc, char* argv[]){
                 onThirty();
                 break;
             case 40:
-                onFourty();
+                onForty();
                 break;
             case 50:
                 onFifty();

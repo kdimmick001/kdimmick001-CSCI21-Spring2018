@@ -1,8 +1,7 @@
 /*
  *  Programming Challenge 21 - UNIT TEST
 */
-
-//#include "box.h"
+#include "box.h"
 
 /*
  *  Programming Challenge 21
@@ -17,7 +16,7 @@ using std::ostringstream;
 TEST_CASE ("Box<int> class functionality", " [Box]") {
     Box<int> intBox(99);
     
-    CHECK(intBox.getContents() = 99);
+    CHECK(intBox.getContents() == 99);
     
     intBox.setContents(42);
     CHECK(intBox.getContents() == 42);

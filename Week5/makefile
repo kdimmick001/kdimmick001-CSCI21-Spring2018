@@ -1,7 +1,7 @@
 templateexe: template.o lab_21_unit_test.o
 	g++ -Wall -std=c++11 -g -o templateexe template.o lab_21_unit_test.o
 	
-template template.cpp template.h
+template: template.cpp template.h
 	g++ -Wall -std=c++11 -g -c template.cpp template.h
 	
 lab21unittest: lab_21_unit_test.cpp

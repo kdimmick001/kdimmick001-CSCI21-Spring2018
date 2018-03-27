@@ -3,7 +3,7 @@
 #include <cstdlib>
 #include <iomanip>
 #include <sstream>
-using namespace std
+using namespace std;
 
 template<typename type>
 class Box {
@@ -12,8 +12,8 @@ class Box {
     public: 
         Box();
         Box(type newContents);
-        void SetContents(type newContents);
-        type GetContents();
-        friend &ostream operator <<(ostream &out, const Box &b);
+        void setContents(type newContents);
+        type getContents();
+        friend ostream &operator <<(ostream &out, Box<type> const &b);
         
 };

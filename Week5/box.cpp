@@ -1,19 +1,6 @@
 #include "box.h"
 
 template<typename type>
-class Box {
-    private:
-        type contents_;
-    public: 
-        Box();
-        Box(type newContents);
-        void SetContents(type newContents);
-        type GetContents();
-        friend &ostream operator <<(ostream &out, const Box &b);
-        
-};
-
-template<typename type>
 Box<type>::Box(){
     contents_ = 0;
 };
@@ -24,17 +11,17 @@ Box<type>::Box(type newContents){
 };
 
 template<typename type>
-void Box<type>::SetContents(type newContents){
+void Box<type>::setContents(type newContents){
     contents_ = newContents;
 };
 
 template<typename type>
-type Box<type>::GetContents(){
+type Box<type>::getContents(){
     return contents_;
 };
 
 template<typename type>
-ostream& operator <<(ostream &out, const Box &b){
+ostream &operator <<(ostream &out, Box<type> const &b){
   out << b.contents_;
   // Return the ostream object to allow for chaining of <<
   return out;

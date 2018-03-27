@@ -1,7 +1,7 @@
  #include <string>
  #include <sstream>
  #include <vector>
- using std::string;
+ using namespace std;
  
   
 template<typename type>
