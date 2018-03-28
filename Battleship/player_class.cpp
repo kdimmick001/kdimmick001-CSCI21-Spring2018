@@ -24,7 +24,7 @@ void Human::PushBoard(string file){
 int Human::SetAttack(string rowcol){
     
     //Erases the current spot in the turn number and adds the new guess.
-    attacks_.erase(attacks_.begin() + counter_);
+    //attacks_.erase(attacks_.begin() + counter_);
     attacks_.at(counter_) = rowcol;
     
     //To add the the turn number.
@@ -93,11 +93,16 @@ int Computer::GetAttack(){
                 cout << "Saved in pop junk: " << pop_junk_ << endl;
                 hit_guesses_.pop();
                 cout << "Popped off the front." << endl;
-                cout << "Now the front is: " << hit_guesses_.front() << endl;
+                //cout << "Now the front is: " << hit_guesses_.front() << endl;
                 //To start the loop over to check for another repeat.
-                i = 0;
+                if (hit_guesses_.size() == 0){
+                    i = attacks_.size();
+                } else {
+                    i = 0;
+                }
             }
         }
+        if (hit_guesses_.size() != 0){
         //Sets the queue item that is unique from the previous attacks to the dummy variable.
         pop_junk_ = hit_guesses_.front();
         cout << "Saved the non repeating queue guess in pop junk: " << pop_junk_ << endl;
@@ -111,21 +116,24 @@ int Computer::GetAttack(){
         
         //A call to the win condition check that returns the win condition.
         return (computer_player_.GetVictory());
+        }
+        
     }
     
     cout << "Went through the queue size check." << endl;
     
     //To create a random seed.
     //FIXME!!! Possible seed to frequently going to move seed to try and fix the infinite loop of same guesses.
-    srand(time(NULL));
+    //Move to main.
+    // srand(time(NULL));
     
     cout << "Created a random seed value." << endl;
     
     //To generate a random row character between A and J.
     // FIXME!!! char rand_row_ = rand() % 74 + 65;
-    char rand_row_ = 65 + rand() % 9;
+    char rand_row_ = 65 + rand() % 10;
     //To generate a random col character between 0 and 9.
-    int rand_col_ = rand() % 9;
+    int rand_col_ = rand() % 10;
     
     cout << "Created a random row and random col variable." << endl;
     cout << "rand_row_: " << rand_row_ << endl;
@@ -177,8 +185,15 @@ void Computer::SetAttack(string rowcol){
         }
     }
     
+    cout << "Finishes SetAttack function first loop." << endl;
+    
     //Erases the current spot in the turn number and adds the new guess.
-    attacks_.erase(attacks_.begin() + counter_);
+    cout << "The size of attacks vector is: " << attacks_.size() << endl;
+    cout << "The counter is: " << counter_ << endl;
+    cout << "Before erasing the attacks vector at this spot holds: " << attacks_.at(counter_) << endl;
+    //attacks_.erase(attacks_.begin() + counter_);
+    cout << "Erases attacks vector current spot." << endl;
+    cout << "Counter: " << counter_ << endl;
     attacks_.at(counter_) = rowcol;
     
     cout << "Added to the attack vector the next guessed." << endl;

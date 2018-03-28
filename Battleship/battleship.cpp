@@ -12,6 +12,9 @@ int main(int argc, char* argv[]) {
     cout << "*********!!PREPARE FOR BATTLE!!**********" << endl;
     cout << "====WELCOME TO THE GAME OF BATTLESHIP====" << endl << endl << endl;
     
+    //Setting a random seed for the conputer generated guesses.
+    srand(time(NULL));
+    
     //Declaring a string to hold the human's board file name.
     string human_file = argv[1];
     
@@ -135,7 +138,7 @@ int main(int argc, char* argv[]) {
     }
     
     //While neither player has hit all the ships.
-    while ((computer_winner != 17) || (human_winner != 17)){
+    while ((computer_winner < 16) || (human_winner < 16)){
         //The Human player goes first followed by the computer player.
         human_player.PrintBoard();
         cout << endl;
@@ -175,7 +178,7 @@ int main(int argc, char* argv[]) {
         }
     }
     //Checks if the computer player has hit all 17 spots.
-    if (computer_winner == 17){
+    if (computer_winner == 16){
       human_player.PrintBoard();
       cout << endl;
       cout << "Your Battle Board." << endl << endl;
@@ -184,7 +187,7 @@ int main(int argc, char* argv[]) {
       cout << "You Lose." << endl << endl;
     }
     //Checks if the human player has hit all 17 spots.
-    if (human_winner == 17){
+    if (human_winner == 16){
       human_player.PrintBoard();
       cout << endl;
       cout << "Your Battle Board." << endl << endl;
