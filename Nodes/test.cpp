@@ -14,7 +14,7 @@
 
 TEST_CASE("Default Constructor") {
   Node node, node2;
-  Node* p_node2 = &node2;
+  Node *p_node2 = &node2;
   SECTION("Accessor for Contents") {
     CHECK(node.contents() == "");
   }

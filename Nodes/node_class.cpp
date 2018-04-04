@@ -6,6 +6,15 @@ Node::Node(){
     next = NULL;
     previous = NULL;
 };
+
+//Default constructor to add data to the node.
+template<typename DT>
+Node::Node(DT stuff){
+    thing_ = stuff;
+    next = NULL;
+    previous = NULL;
+};
+
 //To set the thing to the parameter value.
 template<typename DT>
 void Node::set_contents(DT info){
@@ -19,7 +28,7 @@ DT Node::contents(){
     return thing_;  
 };
 
-//To set t he next pointer.
+//To set the next pointer.
 void Node::set_next_node(Node *node2){
     //Sets the next object pointer to the node2 object.
     next = node2;

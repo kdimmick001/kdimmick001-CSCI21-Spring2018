@@ -20,6 +20,8 @@ class Node {
     public:
         //Constructor to set the pointer.
         Node();
+        //Overload Constructor.
+        Node(DT stuff);
         //To set the information being held in the object.
         void set_contents(DT info);
         //To get the information being held in the object.
