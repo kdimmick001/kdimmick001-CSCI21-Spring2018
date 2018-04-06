@@ -34,9 +34,9 @@ class Node {
         void set_previous_node(Node *node2);
         //Gets the previous node object.
         Node* get_previous_node();
-        
+        Node* get_last_node();
+        Node* get_first_node();
 };
-
 //Move this to .cpp file.
 //Constructor.
 template<typename DT>
@@ -102,6 +102,14 @@ template<typename DT>
 Node<DT>* Node<DT>::get_previous_node(){
     //Returns the object that the previous is pointing to.
     return previous;
+};
+template<typename DT>
+Node<DT> *Node<DT>::get_last_node(){
+    return last;
+};
+template<typename DT>
+Node<DT> *Node<DT>::get_first_node(){
+    return first;
 };
     
 #endif
