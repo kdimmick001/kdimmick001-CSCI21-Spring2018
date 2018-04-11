@@ -1,10 +1,10 @@
-#ifndef STACK_H
-#define STACK_H
+#ifndef QUEUE_H
+#define QUEUE_H
 
 #include "node.h"
 
 template<typename DT>
-class Stack{
+class Queue{
     private:
         DT data;
         //Stack *last;
@@ -12,9 +12,11 @@ class Stack{
         //To keep track of how big the stack is.
         int count_;
         // Stack *temp;
+        //To create a tail
+        Node<DT> *tail;
     public:
         //Constructor.
-        Stack();
+        Queue();
         //To push to the back of the stack.
         void push(DT stuff);
         //To return the last added item.
@@ -29,7 +31,7 @@ class Stack{
 };
 
 template<typename DT>
-Stack<DT>::Stack(){
+Queue<DT>::Queue(){
     count_ = 0;
     data = "";
     // last = NULL;
@@ -39,15 +41,17 @@ Stack<DT>::Stack(){
 };
 
 template<typename DT>
-void Stack<DT>::push(DT stuff){
+void Queue<DT>::push(DT stuff){
     Node<DT> *node_ = new Node<DT>;
     node_->set_contents(stuff);
     if (first == NULL){
         node_->set_next_node(NULL);
         first = node_;
+        tail = first;
     } else { 
         node_->set_next_node(first);
-        first = node_;
+        tail = node_;
+        
     }
     count_ = count_ + 1;
     data += stuff;
@@ -57,7 +61,7 @@ void Stack<DT>::push(DT stuff){
 };
 
 template<typename DT>
-void Stack<DT>::pop(){
+void Queue<DT>::pop(){
     if (first != NULL){
         PrintData();
         Node<DT> *temp = first;
@@ -77,12 +81,12 @@ void Stack<DT>::pop(){
 };
 
 template<typename DT>  
-int Stack<DT>::size(){
+int Queue<DT>::size(){
     return count_;
 };
 
 template<typename DT>
-DT Stack<DT>::PrintData(){
+DT Queue<DT>::PrintData(){
     data = "";
     Node<DT> *curr_node = first;
     while (curr_node != NULL){
@@ -96,7 +100,7 @@ DT Stack<DT>::PrintData(){
 };
 
 template<typename DT>
-void Stack<DT>::clear(){
+void Queue<DT>::clear(){
     while (first != NULL){
         pop();
     }
@@ -105,7 +109,7 @@ void Stack<DT>::clear(){
     return;
 };
 template<typename DT>
-DTg Stack<DT>::get_data(){
+DTg Queue<DT>::get_data(){
     return data;
 };
 
