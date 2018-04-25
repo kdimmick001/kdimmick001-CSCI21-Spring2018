@@ -36,7 +36,14 @@ int main() {
         
         if (first_movie > second_movie){
             if (movie_list.size() == 0){
-                movie_list
+                movie_list.push(second_movie);
+                movie_list.push(first_movie);
+            }
+        }
+        if (second_movie > first_movie){
+            if (movie_list.size() == 0){
+                movie_list.push(first_movie);
+                movie_list.push(second_movie);
             }
         }
     }
