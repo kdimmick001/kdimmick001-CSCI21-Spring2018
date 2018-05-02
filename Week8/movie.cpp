@@ -183,3 +183,8 @@ int main(){
 
 }
 
+
+//0-26 hash table array for the first letter of the name
+
+string moviehash[26];
+
