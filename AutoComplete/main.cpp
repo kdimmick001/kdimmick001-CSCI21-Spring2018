@@ -10,8 +10,8 @@ int main(){
     if (!fin.is_open()){
         cout << "Unable to open file." << endl;
     }
-    //To create a map to hold the associated weight and string.
-    map<string, int> library;
+    // //To create a map to hold the associated weight and string.
+    // map<string, int> library;
     
     //Holds the size of the file.
     fin >> size;
@@ -22,8 +22,10 @@ int main(){
         fin >> weight;
         //Holds the string associated with the previous weight.
         fin >> word;
-        //To emplace the associated word with the weight into the map library.
-        library.emplace(word, weight);
+        // //To emplace the associated word with the weight into the map library.
+        // library.emplace(word, weight);
+        String* library = new String*
+        
         
     }
     

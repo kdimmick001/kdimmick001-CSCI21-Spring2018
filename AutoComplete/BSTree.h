@@ -75,6 +75,4 @@ void BST::PrivateInsert(string prefix, BSTNode* node){
     return;
 };
 
-
-
 #endif
