@@ -9,7 +9,7 @@ class BSTree : public String{
         //To hold the information for the root as a reference.
         BSTNode* root;
         //To hold to current to sort into the associated left/right child.
-        BSTNode* curr;
+        //BSTNode* curr;
     
     public:
         //Constructor.
@@ -27,6 +27,8 @@ BSTree::BSTree(){
 };
 //To call the PrivateInsert Function using the appropriate BSTNode pointer.
 void BST::Insert(string prefix){
+    //Call the Private function because always want to start searching with the root.
+    //But also want the flexibility to change the pointer node being passed to reflect the path the prefix needs to be inserted.
     PrivateInsert(prefix, root);
     return;
 };
