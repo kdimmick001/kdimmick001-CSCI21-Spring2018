@@ -15,7 +15,9 @@ class BSTree : public String{
         //Constructor.
         BSTree();
         //To Insert values into the Tree.
-        void Insert();
+        void Insert(string prefix);
+        //To insert values into the Tree based on the node pointer.
+        void PrivateInsert(string prefix, BSTNode* node);
 };
 
 //Constructor to set the root and the current node value to NULL.
@@ -23,9 +25,15 @@ BSTree::BSTree(){
     root = NULL;
     //curr = NULL;
 };
+//To call the PrivateInsert Function using the appropriate BSTNode pointer.
+void BST::Insert(string prefix){
+    PrivateInsert(prefix, root);
+    return;
+};
+
 
 //To Insert values to progress the tree.
-void BST::Insert(string prefix){
+void BST::PrivateInsert(string prefix, BSTNode* node){
     
     //To create a new Node pointer to be able to manipulate the intended insert string.
     BSTNode* leaf = new BSTNode*;
@@ -37,22 +45,32 @@ void BST::Insert(string prefix){
         
     //Case for if the Tree is not empty.
     }else {
-        //If the prefix is smaller than the root's prefix.
-        if (prefix < root.GetPrefix()){
+        //If the prefix is smaller than the passed node pointer's prefix.
+        if (prefix < node.GetPrefix()){
             //If the left child is empty.
-            if (root.GetLeftChild() == NULL){
-                root.SetLeftChild(leaf);
+            if (node.GetLeftChild() == NULL){
+                node.SetLeftChild(leaf);
             }
             //If the left child is not empty.
-            if (root.GetLeftChild() != NULL){
-                curr = GetLeftChild();
-                if (prefix < curr.GetPrefix()){
-                    
-                }
+            if (node.GetLeftChild() != NULL){
+                //Recursive call to the PrivateInsert function.
+                PrivateInsert(prefix, node.GetLeftChild());
             }
         }
-        
+        //If the prefix is greater than the passed node's pointer prefix.
+        if (prefix > node.GetPrefix()){
+            //If the right child is empty.
+            if (node.GetRightChild() == NULL){
+                node.SetRightChild(leaf);
+            }
+            //If the right child is not empty.
+            if (node.GetRightChild() != NULL){
+                //Recursive call to the PrivateInsert function.
+                PrivateInsert(prefix, node.GetRightChild());
+            }
+        }
     }
+    return;
 };
 
 
