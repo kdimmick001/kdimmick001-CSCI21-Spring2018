@@ -3,6 +3,7 @@
 #include <string>
 #include <sstream>
 #include <cstring>
+#include <map>
 using namespace std;
 
 #ifndef STRING_H
