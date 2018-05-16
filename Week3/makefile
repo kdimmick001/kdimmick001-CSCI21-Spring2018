@@ -30,4 +30,3 @@ unittest12: lab_12_unit_test.cpp
 
 clean:
 	rm *.o *test
-	

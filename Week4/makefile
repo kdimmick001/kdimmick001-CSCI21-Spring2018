@@ -1,7 +1,7 @@
 Pairexe: Pair.o
 	g++ -Wall -std=c++11 -g -o Pairexe Pair.o
 	
-Pair: Pair.cpp Pair.h
+Pair: Pair.cpp Pair.h 
 	g++ -Wall -std=c++11 -g -c Pair.cpp Pair.h
 	
 Petsexe: Pets.o
