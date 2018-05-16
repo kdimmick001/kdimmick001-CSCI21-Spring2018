@@ -1,0 +1,5 @@
+
+int main(){
+    BSTNode* root;
+    
+}

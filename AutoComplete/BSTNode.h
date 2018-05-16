@@ -15,7 +15,12 @@ class BSTNode{
     public:
         //Constructor to set the pointer nodes to NULL.
         BSTNode();
+        //Mutator for the prefix.
+        void SetPrefix(string beginning);
+        //Accessor for the prefix.
+        string GetPrefix();
+        //Mutator for the Node pointers.
+        void SetChildren(BSTNode* child);
 }
-
 
 #endif

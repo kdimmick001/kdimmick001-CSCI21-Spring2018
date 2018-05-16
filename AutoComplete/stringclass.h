@@ -12,10 +12,15 @@ class String {
     private:
     
     public:
+        //Constructor.
+        String();
+        //Function to put in ascending order by weight.
+        virtual int AscendWeight();
+        //Function to put in descending order by weight.
+        virtual int DescendWeight();
+        //Function to put prefix characters in ascending order.
+        virtual string AscendPrefix();
     
 }
-
-
-
 
 #endif
