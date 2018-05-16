@@ -1,9 +1,10 @@
-#ifndef BST_H
-#define BST_H
+#ifndef BSTree_H
+#define BSTree_H
 
 #include "stringclass.h"
 
-class BSTree{
+//Inherits from the string class to be able to utilize ascending and descending functions.
+class BSTree : public String{
     private:
         
     
