@@ -56,7 +56,10 @@ void String::AddWord(string word, int weight){
 
 //Accessor for the weight based on the prefix for word.
 int String::WeightIndex(string prefix){
-    
+    //If the word was not long enough to make a prefix.
+    if (prefix < 3){
+        
+    }
 };
 
 //Accessor for the string.
