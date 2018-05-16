@@ -21,6 +21,23 @@ class String {
         //Function to put prefix characters in ascending order.
         virtual string AscendPrefix();
     
-}
+};
+
+//Constructor
+String::String(){
+    
+};
+
+virtual int String::AscendWeight(){
+    
+};
+
+virtual int String::DescendWeight(){
+    
+};
+
+virtual int String::AscendPrefix(){
+    
+};
 
 #endif
