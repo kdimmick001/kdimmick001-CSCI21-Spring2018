@@ -9,7 +9,7 @@ class BSTree : public String{
         //To hold the information for the root as a reference.
         BSTNode* root;
         //To hold to current to sort into the associated left/right child.
-        //BSTNode* curr;
+        BSTNode* curr;
     
     public:
         //Constructor.
@@ -37,13 +37,19 @@ void BST::Insert(string prefix){
         
     //Case for if the Tree is not empty.
     }else {
-        //If the root is smaller than the value to be inserted.
-        if (root.GetPrefix() < prefix){
-            
-        }
-        //If the root is larger than the value to be inserted.
-        if (root.GetPrefix() > prefix){
-            
+        //If the prefix is smaller than the root's prefix.
+        if (prefix < root.GetPrefix()){
+            //If the left child is empty.
+            if (root.GetLeftChild() == NULL){
+                root.SetLeftChild(leaf);
+            }
+            //If the left child is not empty.
+            if (root.GetLeftChild() != NULL){
+                curr = GetLeftChild();
+                if (prefix < curr.GetPrefix()){
+                    
+                }
+            }
         }
         
     }
